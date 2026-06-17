@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #1f2937;
+  --color-secondary-foreground: #f9fafb;
+  --color-accent: #8b5cf6;
+  --color-accent-foreground: #ffffff;
+  
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --primary: #3b82f6;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary: #3b82f6;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.8);
+}
+
+/* Utilities for glassmorphism */
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 dark:bg-black/20 dark:border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600;
+  }
+}
